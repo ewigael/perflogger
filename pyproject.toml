@@ -1,0 +1,21 @@
+[project]
+name = "perflogger"
+version = "0.1.0"
+description = "Python performance logging library"
+authors = [
+    { name = "Akasha Mouginot", email = "akasha.mouginot@protonmail.com" }
+]
+requires-python = ">=3.14"
+
+[project.urls]
+Repository = "https://github.com/ewigael/perflogger"
+Issues = "https://github.com/ewigael/perflogger/issues"
+Changelog = "https://github.com/ewigael/perflogger/blob/main/docs/CHANGELOG.md"
+Readme = "https://github.com/ewigael/perflogger/blob/main/README.md"
+
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
