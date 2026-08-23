@@ -17,6 +17,12 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Fixed
 
+## [0.1.3]
+
+### Fixed
+
+- Uploading latest version to pypi... i'm getting the hang of this.
+
 ## [0.1.2]
 
 ### Changed
