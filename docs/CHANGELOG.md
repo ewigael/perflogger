@@ -11,12 +11,18 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Added
 
+### Changed
+
+### Removed
+
+### Fixed
+
+## [0.1.0]
+
+### Added
+
 - PerfLogger class as a direct functionnal copy of the PerformanceLogger class from my [boids project](https://github.com/ewigael/boids) (which now uses this package instead)
 
 ### Changed
 
 - PerfLogger._instances is now a list to conserve creation order, added a classmethod ```get_all_instances``` to remove weak refs
-
-### Removed
-
-### Fixed
