@@ -6,12 +6,25 @@ authors = [
     { name = "Akasha Mouginot", email = "akasha.mouginot@protonmail.com" }
 ]
 requires-python = ">=3.14"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+keywords = ["performance", "testing"]
 
 [project.urls]
-Repository = "https://github.com/ewigael/perflogger"
-Issues = "https://github.com/ewigael/perflogger/issues"
+Homepage = "https://github.com/ewigael/perflogger"
 Changelog = "https://github.com/ewigael/perflogger/blob/main/docs/CHANGELOG.md"
-Readme = "https://github.com/ewigael/perflogger/blob/main/README.md"
+Issues = "https://github.com/ewigael/perflogger/issues"
+Readme = " https://github.com/ewigael/perflogger/blob/main/README.md"
 
 [build-system]
 requires = ["setuptools>=80"]
