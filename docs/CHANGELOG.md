@@ -11,7 +11,7 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Added
 
-- PerfLogger class as a direct functionnal copy of the PerformanceLogger class 
+- PerfLogger class as a direct functionnal copy of the PerformanceLogger class from my [boids project](https://github.com/ewigael/boids) (which now uses this package instead)
 
 ### Changed
 
