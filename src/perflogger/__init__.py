@@ -1,6 +1,6 @@
 from importlib.metadata import metadata
 
-_metadata = metadata("perflogger")
+_metadata = metadata("akashic-perflogger")
 
 __package_name__ = _metadata["Name"]
 __version__ = _metadata["Version"]

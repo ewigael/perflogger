@@ -17,6 +17,16 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Fixed
 
+## [0.1.2]
+
+### Changed
+
+- renaming package name to 'akashic-perflogger'
+
+### Fixed
+
+- fixing metadata call
+
 ## [0.1.1]
 
 ### Added
