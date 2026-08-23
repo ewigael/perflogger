@@ -11,7 +11,11 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Added
 
+- PerfLogger class as a direct functionnal copy of the PerformanceLogger class 
+
 ### Changed
+
+- PerfLogger._instances is now a list to conserve creation order, added a classmethod ```get_all_instances``` to remove weak refs
 
 ### Removed
 
