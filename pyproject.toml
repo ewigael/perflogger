@@ -1,6 +1,6 @@
 [project]
 name = "perflogger"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python performance logging library"
 authors = [
     { name = "Akasha Mouginot", email = "akasha.mouginot@protonmail.com" }

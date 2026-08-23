@@ -11,13 +11,18 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Added
 
-- MIT License
-
 ### Changed
 
 ### Removed
 
 ### Fixed
+
+## [0.1.1]
+
+### Added
+
+- MIT License
+- PyPi metadata
 
 ## [0.1.0]
 
