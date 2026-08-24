@@ -62,13 +62,15 @@ class PerfLogger(Logger):
                 file.write(lines)
 
     def write_to_file(self, tag_name, value, delta):
-        line = {
-            "logger_name": self.name,
-            "logger_class": type(self).__name__,
-            "value_name": tag_name,
-            "value_plain": value,
-            "value_delta": delta,
-        }
+        line = (
+            self.name,
+            type(self).__name__,
+            tag_name,
+            value,
+            delta,
+        )
+
+
         self._write_to_file(line)
 
     def get_deltas(self):
