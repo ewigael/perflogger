@@ -1,32 +1,35 @@
 import inspect
 import time
-import weakref
+
+from os import PathLike
+from pathlib import Path
+import jsonlines
+
+from .logger import Logger
 
 
-class PerfLogger:
+class PerfLogger(Logger):
 
-    _instances = []
-
-    def __init__(self, name=None, tick_func=time.perf_counter, avgs_step=1):
-
-        PerfLogger._instances.append(weakref.ref(self))
+    def __init__(
+        self,
+        name: str | None = None,
+        tick_func=time.perf_counter,
+        avgs_step: int | float = 1,
+        output_file_path: str | PathLike | None = None,
+    ):
+        super().__init__()
 
         self.name = (
             name if name is not None else inspect.currentframe().f_back.f_code.co_name
         )
         self.tick = tick_func
         self.avgs_step = avgs_step
+        self.output_file_path = Path(output_file_path) if output_file_path else None
 
         self.tags = []
         self.tags_data = {}
         self.avgs = {}
         self._avgs_counter = None
-
-    @classmethod
-    def get_all_instances(cls):
-        """Return a list of all instances of current class in creation order"""
-        cls._instances[:] = [ref for ref in cls._instances if ref() is not None]
-        return [ref() for ref in cls._instances]
 
     def start(self):
         """Clear the tags table and init a start tag"""
@@ -41,7 +44,10 @@ class PerfLogger:
         """Add a new tag in the tags table as the delta between now and last tag;
         append that delta to the tags_data table to later compute averages"""
         now = self.tick()
-        self.tags_data.setdefault(tag_name, []).append(now - self.tags[-1][1])
+        delta = now - self.tags[-1][1]
+        if self.output_file_path is not None:
+            self.write_to_file(tag_name, now, delta)
+        self.tags_data.setdefault(tag_name, []).append(delta)
         self.tags.append((tag_name, now))
 
     def _set_averages(self):
@@ -49,6 +55,23 @@ class PerfLogger:
         self.avgs.clear()
         for name, data in self.tags_data.items():
             self.avgs[name] = sum(data) / len(data)
+
+    def _write_to_file(self, lines):
+        with self._get_write_lock(self.output_file_path):
+            with jsonlines.open(self.output_file_path, "a") as file:
+                file.write(lines)
+
+    def write_to_file(self, tag_name, value, delta):
+        line = (
+            self.name,
+            type(self).__name__,
+            tag_name,
+            value,
+            delta,
+        )
+
+
+        self._write_to_file(line)
 
     def get_deltas(self):
         """Return deltas stored in the tags table both in a human readable format and true float"""

@@ -17,6 +17,17 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Fixed
 
+## [0.2.0]
+
+### Added
+
+- Can now write to file! (thread-safe)
+
+### Changed
+
+- Moved PerfLogger instance listing utils to newly created Logger base class
+- Added jsonlines to dependancies
+
 ## [0.1.3]
 
 ### Fixed

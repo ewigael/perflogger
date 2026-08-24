@@ -6,7 +6,10 @@ A performance tracking package for Python devs
 
 ##### Use pip
 
-_Pypi package coming soon_
+Install the `akashic-perflogger` package with pip:
+```bash
+pip install akashic-perflogger
+```
 
 ##### Build from sources
 
@@ -19,8 +22,15 @@ cd perflogger
 pip install .
 ```
 
+## Features
+
+### PerfLogger
+
+The `PerfLogger` class allows you to simply record time deltas between operations.
+You can then access that data directly from the class instance as the most recent value, or an average over a custom time step.
+You may also record all that data to a file to be analyzed later.
+
 ## Coming soon:
 
 - ```PerfCounter``` class, to count how many times something happens
-- Writing data to files
 - ```PerfAnalyzer```, a co-project to vizualise and compare recorded data
