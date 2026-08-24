@@ -1,15 +1,21 @@
 import inspect
 import time
-import weakref
+
+from os import PathLike
+
+from .logger import Logger
 
 
-class PerfLogger:
+class PerfLogger(Logger):
 
-    _instances = []
-
-    def __init__(self, name=None, tick_func=time.perf_counter, avgs_step=1):
-
-        PerfLogger._instances.append(weakref.ref(self))
+    def __init__(
+        self,
+        name: str | None = None,
+        tick_func=time.perf_counter,
+        avgs_step: int | float = 1,
+        output_file_path: str | PathLike | None = None,
+    ):
+        super().__init__()
 
         self.name = (
             name if name is not None else inspect.currentframe().f_back.f_code.co_name
@@ -21,12 +27,6 @@ class PerfLogger:
         self.tags_data = {}
         self.avgs = {}
         self._avgs_counter = None
-
-    @classmethod
-    def get_all_instances(cls):
-        """Return a list of all instances of current class in creation order"""
-        cls._instances[:] = [ref for ref in cls._instances if ref() is not None]
-        return [ref() for ref in cls._instances]
 
     def start(self):
         """Clear the tags table and init a start tag"""
