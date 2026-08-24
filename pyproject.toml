@@ -19,6 +19,8 @@ classifiers = [
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 keywords = ["performance", "testing"]
+dependencies = ["jsonlines>=4"]
+
 
 [project.urls]
 Homepage = "https://github.com/ewigael/perflogger"

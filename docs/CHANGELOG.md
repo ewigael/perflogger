@@ -11,6 +11,8 @@ and this programmer does her best to follow [Conventional Commits](https://www.c
 
 ### Added
 
+- Can now write to file! (thread-safe)
+
 ### Changed
 
 - Moved PerfLogger instance listing utils to newly created Logger base class
